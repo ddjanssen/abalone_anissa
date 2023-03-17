@@ -93,6 +93,7 @@ public class LocalGame extends Game {
                 Move move = currentPlayer.makeMove(board);
                 board.executeMove(move);
                 view.printBoard(board);
+                view.printHint(currentPlayer, board);
                 currentPlayer = getNextPlayer();
                 turns++;
             }

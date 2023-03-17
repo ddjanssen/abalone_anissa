@@ -2,6 +2,8 @@ package abalonemodel;
 
 import abalonecontrol.Game;
 
+import java.util.ArrayList;
+
 /**
  * Abstract class of a Player in Abalone.
  * 
@@ -31,6 +33,14 @@ public abstract class Player {
         this.mark = null;
         this.points = 0;
 
+    }
+
+    public ArrayList<Move> validMoves(Board board) {
+        return new ArrayList<>();
+    }
+
+    public Move getHint(Board board) {
+        return this.validMoves(board).get(getRandomInt(0, this.validMoves(board).size()-1));
     }
     
     public int getPoints() {
@@ -127,5 +137,11 @@ public abstract class Player {
         }
         return choice;
         // to be implemented board.move(choice, getMark())
+    }
+
+    private int getRandomInt(double min, double max) {
+        double x = (int) (Math.random() * ((max - min) + 1)) + min;
+        return (int) x;
+
     }
 }

@@ -24,6 +24,11 @@ public class Move {
 
 
 
+    public String toString() {
+        return "";
+    }
+
+
 
 
 

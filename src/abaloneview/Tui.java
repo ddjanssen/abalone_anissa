@@ -1,8 +1,5 @@
 package abaloneview;
 
-import java.util.Observable;
-
-import abalonecontrol.Game;
 import abalonecontrol.LocalGame;
 import abalonemodel.Board;
 import abalonemodel.Player;
@@ -82,6 +79,12 @@ public class Tui extends View {
         }
 
         
+    }
+
+    @Override
+    public void printHint(Player player, Board board) {
+        player.getHint(board);
+
     }
 
 }

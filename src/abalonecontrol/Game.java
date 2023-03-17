@@ -53,6 +53,8 @@ public abstract class Game extends Thread {
         setBoardSetUp();
     }
 
+
+
     /**
      * <code>setMark</code> gives each player their colour. 
      * fall through was meant to be

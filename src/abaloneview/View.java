@@ -44,4 +44,5 @@ public abstract class View /* implements Observer */ {
 
     public abstract void showWinners(Board board, Player[] players);
 
+    public abstract void printHint(Player player, Board board);
 }

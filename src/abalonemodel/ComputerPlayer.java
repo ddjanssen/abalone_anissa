@@ -24,6 +24,8 @@ public class ComputerPlayer extends Player {
         super(string, game);
     }
 
+
+
     /**
      * for all fields on board. put the fields with this.mark in myFields
      */
