@@ -111,16 +111,24 @@ public class PlayerTest {
      */
 
     /**
-     * make a test to test the makeMove method
+     * Make a test to test the makeMove method on 2 computer players
+     * This is the only test where we need to create a new board, game and players
+     * It is not possible to test if the move is invalid, because otherwise the test will go in an infinite loop
      */
-
-
-
-    /**
-     * Human specific tests.
-     * It is not possible to do these tests for the human player, because it requires the human to perform inputs
-     * This can only be tested manually when doing a coverage test
-     */
+    @Test
+    public void testMakeMove() {
+        final String[] twoPlayers = {"Computer", "Computer"};
+        LocalGame game = new LocalGame(twoPlayers, new Tui());
+        Board board = game.getBoard();
+        ComputerPlayer computerPlayer = (ComputerPlayer) game.getCurrentPlayer();
+        ComputerPlayer computerPlayer1 = (ComputerPlayer) game.getNextPlayer();
+        Move move = computerPlayer.makeMove(board);
+        assertTrue(board.validMove(move));
+        board.executeMove(move);
+        game.currentPlayer = game.getNextPlayer();
+        Move move1 = computerPlayer1.makeMove(board);
+        assertTrue(board.validMove(move1));
+    }
 
     /**
      * Test for a ComputerPlayer to determine a move
@@ -145,25 +153,16 @@ public class PlayerTest {
 
 
 
+
+
+
+
     /**
-     * Make a test to test the makeMove method on 2 computer players
-     * This is the only test where we need to create a new board, game and players
-     * It is not possible to test if the move is invalid, because otherwise the test will go in an infinite loop
+     * Human specific tests.
+     * It is not possible to do these tests for the human player, because it requires the human to perform inputs
+     * This can only be tested manually when doing a coverage test
      */
-    @Test
-    public void testMakeMove() {
-        final String[] twoPlayers = {"Computer", "Computer"};
-        LocalGame game = new LocalGame(twoPlayers, new Tui());
-        Board board = game.getBoard();
-        ComputerPlayer computerPlayer = (ComputerPlayer) game.getCurrentPlayer();
-        ComputerPlayer computerPlayer1 = (ComputerPlayer) game.getNextPlayer();
-        Move move = computerPlayer.makeMove(board);
-        assertTrue(board.validMove(move));
-        board.executeMove(move);
-        game.currentPlayer = game.getNextPlayer();
-        Move move1 = computerPlayer1.makeMove(board);
-        assertTrue(board.validMove(move1));
-    }
+
 
 
 
